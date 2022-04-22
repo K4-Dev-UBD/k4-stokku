@@ -1,6 +1,6 @@
 <?php
 
-$username = "Admin" 
+$username = "Admin";
 
 ?>
 
@@ -14,7 +14,9 @@ $username = "Admin"
 </head>
 <body>
 
-<h1>Hello, <?= $username; ?></h1>
+<header>
+    <h1>Stokku</h1>
+</header>
 
 </body>
 </html>

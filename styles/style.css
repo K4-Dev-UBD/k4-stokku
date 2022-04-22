@@ -8,3 +8,27 @@
 html {
 	scroll-behavior: smooth;
 }
+
+body {
+	background-color: whitesmoke;
+}
+
+header {
+	background-color: cornflowerblue;
+	padding: 30px;
+}
+
+header h1 {
+	text-align: center;
+	text-transform: uppercase;
+	color: #fff;
+}
+
+.barang-inner {
+	display: flex;
+	padding: 25px;
+}
+
+.barang .list .header-name {
+	text-transform: capitalize;
+}
