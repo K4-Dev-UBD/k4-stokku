@@ -1,8 +1,9 @@
 * {
 	margin: 0;
 	padding: 0;
-	font-family: 'Calibri', sans-serif;
+	font-family: 'Inter', sans-serif;
 	box-sizing: border-box;
+	word-wrap: break-word;
 }
 
 html {
@@ -13,22 +14,41 @@ body {
 	background-color: whitesmoke;
 }
 
-header.hero-head {
-	background-color: cornflowerblue;
-	padding: 30px;
+header.main-head {
+	padding: 20px;
+	display: flex;
+	margin-left: 20px;
+	margin-right: 20px;
 }
 
-header.hero-head h1 {
-	text-align: center;
-	text-transform: uppercase;
-	color: #fff;
+.breadcrump {
+	max-width: 700px;
 }
 
-header.hero-head p {
-	text-align: center;
+.breadcrump .head-legend {
 	text-transform: uppercase;
-	letter-spacing: 5px;
-	color: #fff;
+	font-size: 1.2em;
+	color: #000;
+	font-weight: 500;
+}
+
+.breadcrump .head-link {
+	font-size: 1.7em;
+	color:#54acacd2;
+}
+
+.breadcrump .head-link a {
+	text-decoration: none;
+	color:#54acacd2;
+}
+
+.breadcrump .head-link a:focus, .breadcrump .head-link a:hover, .breadcrump .head-link a:active, .breadcrump .head-link a.active {
+	color: #077c7c;
+	transition: .3s ease;
+}
+
+.head-action {
+	margin-left: auto;
 }
 
 .barang-inner {
@@ -73,24 +93,19 @@ header.hero-head p {
 	background-position: center;
 }
 
-.card-body {
-	min-height: 100px;
-	padding: 5px;
+.row {
+	padding: 6px;
+	width: 100%;
 }
 
-.card-body .product-name {
+.card-body {
+	min-height: 100px;
+}
+
+.product-name {
 	text-decoration: none;
 	color: cadetblue;
 	cursor: pointer;
-}
-
-.card-body .product-stock {
-	font-weight: 800;
-	margin-top: 3px;
-}
-
-.card-footer {
-	padding: 5px;
 }
 
 .card-footer .card-action {
@@ -98,7 +113,7 @@ header.hero-head p {
 	flex-wrap: wrap;
 }
 
-.card-footer .card-action button.button-delete {
+ button.button-view {
 	width: 100%;
 }
 
@@ -110,22 +125,105 @@ header.hero-head p {
 	color: #fff;
 	box-shadow: 0px 0px 5px 1px rgba(31, 31 ,31, 0.2);
 	border-radius: 3px;
+	font-size: .9em;
+	text-align: center;
+	font-weight: 600;
+	text-decoration: none;
+	white-space: nowrap;
+	vertical-align: middle;
+	display: inline-block;
+	justify-content: center;
+	align-items: center;
+	padding: 7px 16px;
 }
 
 .button-delete {
-	background-color: #ee1b1f;
+	background-color: #d80f13;
 }
 
-.button-delete:hover, .button-delete:focus {
+.button-delete:hover {
 	transition: .3s ease;
-	background-color: #f0292d;
+	background-color: #ee1b1ead;
 }
 
 .button-primary {
 	background-color: #2578d4;
 }
 
-.button-primary:hover, .button-primary:focus {
+.button-primary:hover {
 	transition: .3s ease;
-	background-color: #338ef5;
+	background-color: #338ef5d2;
+}
+
+.button-success {
+	background-color: #2dda2d;
+}
+
+.button-success:hover {
+	background-color: #2dda2db9;
+	transition: .3s ease;
+}
+
+.text-muted {
+	color: #525252c4;
+}
+
+.text-bold {
+	font-weight: 800;
+}
+
+.head-action button {
+	margin-left: 10px;
+}
+
+.form-field {
+	padding: 30px 100px;
+}
+
+.form-field-body {
+	background-color: #ffffff62;
+	padding: 20px;
+}
+
+.form-field-action {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.form-field-action button {
+	margin-left: 10px;
+}
+
+.form-input-heading {
+	display: block;
+	margin-bottom: 3px;
+	font-size: 16px;
+	line-height: 1.5;
+	font-weight: 600;
+}
+
+.form-field-body .row:not(:last-child) {
+	margin-bottom: 25px;
+}
+
+input[type=text] {
+	background-color: #fff;
+	border: 1px solid #c9cecf;
+	border-radius: 3px;
+	box-shadow: none;
+	color: #2e3d46;
+	max-width: 100%;
+	padding: 7px 8px;
+	transition: all .3s ease;
+	vertical-align: middle;
+}
+
+input[type=text]:focus, input[type=text]:active {
+	outline-color: #2dda2d;
+}
+
+.form-input .input {
+	font-size: 16px;
+	line-height: 1.5;
+	width: 100%;
 }
