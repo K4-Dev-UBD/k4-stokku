@@ -27,18 +27,12 @@ $username = "Admin";
         <a href="<?= $_SERVER['REQUEST_URI'] ?>" class="active">Home</a>
       </div>
     </div>
-
     <div class="head-action">
       <button class="button button-success">Tambah Barang</button>
     </div>
   </header>
   <div class="barang">
     <div class="barang-inner">
-      <!-- <header class="barang-head">
-        <div class="barang-head-name">
-          <p>Daftar barang</p>
-        </div>
-      </header>  -->
       <section class="card">
         <div class="card-inner">
           <div class="card-header">

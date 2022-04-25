@@ -1,6 +1,6 @@
 <?php 
 
-$id = $_GET["id"];
+
 
 ?>
 
@@ -14,20 +14,19 @@ $id = $_GET["id"];
   <link rel="stylesheet" type="text/css" href="styles/style.css">
   <link rel="icon" href="public/icons/javascript-icon.ico">
   <link rel="apple-touch-icon" href="public/icons/javascript-icon.ico">
-  <title>Stokku Product - <?= $id; ?></title>
+  <title>Stokku Product - New</title>
 </head>
 <body>
-  <form method="POST">
+  <form action="" method="POST">
     <header class="main-head">
       <div class="breadcrump">
         <p class="head-legend">Stokku</p>
         <div class="head-link">
-          <a href="/">Home</a> / <a href="/" class="active">Detail</a>
+          <a href="/">Home</a> / <a href="/" class="active">New</a>
         </div>
       </div>
       <div class="head-action">
         <div class="form-field-action">
-          <button class="button button-delete">Delete</button>
           <button type="submit" class="button button-primary">Save</button>
         </div>
       </div>
