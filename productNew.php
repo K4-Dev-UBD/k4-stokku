@@ -17,7 +17,7 @@
   <title>Stokku Product - New</title>
 </head>
 <body>
-  <form action="" method="POST">
+  <form method="POST">
     <header class="main-head">
       <div class="breadcrump">
         <p class="head-legend">Stokku</p>

@@ -2,6 +2,12 @@
 
 $id = $_GET["id"];
 
+if (isset($_POST["submit"])) {
+  var_dump($_POST);
+}
+
+$currentPath = $_SERVER['REQUEST_URI'];
+
 ?>
 
 <!DOCTYPE html>
@@ -17,18 +23,18 @@ $id = $_GET["id"];
   <title>Stokku Product - <?= $id; ?></title>
 </head>
 <body>
-  <form method="POST">
+  <form method="POST" id="form">
     <header class="main-head">
       <div class="breadcrump">
         <p class="head-legend">Stokku</p>
         <div class="head-link">
-          <a href="/">Home</a> / <a href="/" class="active">Detail</a>
+          <a href="index.php">Home</a> / <a href="<?= $currentPath ?>" class="active">Detail</a>
         </div>
       </div>
       <div class="head-action">
         <div class="form-field-action">
           <button class="button button-delete">Delete</button>
-          <button type="submit" class="button button-primary">Save</button>
+          <button type="submit" name="submit" class="button button-primary">Save</button>
         </div>
       </div>
     </header>

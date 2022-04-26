@@ -2,7 +2,7 @@
 
 $username = "Admin";
 // var_dump($_SERVER['HTTP_HOST']);
-// var_dump($_SERVER['REQUEST_URI'])
+// var_dump($_SERVER['REQUEST_URI']);
 
 ?>
 
@@ -33,6 +33,7 @@ $username = "Admin";
   </header>
   <div class="barang">
     <div class="barang-inner">
+      <!-- mapping data from db -->
       <section class="card">
         <div class="card-inner">
           <div class="card-header">
