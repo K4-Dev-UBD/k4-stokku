@@ -1,12 +1,15 @@
 <?php 
 
+require "components/head.component.php";
+require "utils/breadCrump.php";
+
+global $headComponent, $breadCrump, $currentPath;
+
 $id = $_GET["id"];
 
 if (isset($_POST["submit"])) {
   var_dump($_POST);
 }
-
-$currentPath = $_SERVER['REQUEST_URI'];
 
 ?>
 
@@ -14,12 +17,7 @@ $currentPath = $_SERVER['REQUEST_URI'];
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Stokku - Kelola semua barang dagang-Mu dengan simple dan cepat.">
-  <link rel="stylesheet" type="text/css" href="styles/style.css">
-  <link rel="icon" href="public/icons/javascript-icon.ico">
-  <link rel="apple-touch-icon" href="public/icons/javascript-icon.ico">
+  <?= $headComponent ?>
   <title>Stokku Product - <?= $id; ?></title>
 </head>
 <body>
@@ -28,7 +26,7 @@ $currentPath = $_SERVER['REQUEST_URI'];
       <div class="breadcrump">
         <p class="head-legend">Stokku</p>
         <div class="head-link">
-          <a href="index.php">Home</a> / <a href="<?= $currentPath ?>" class="active">Detail</a>
+          <a href="<?= $breadCrump[1] ?>">Home</a> / <a href="<?= $currentPath ?>" class="active">Detail</a>
         </div>
       </div>
       <div class="head-action">

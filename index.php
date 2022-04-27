@@ -1,5 +1,10 @@
 <?php
 
+require "components/head.component.php";
+require "utils/breadCrump.php";
+
+global $headComponent, $currentPath;
+
 $username = "Admin";
 // var_dump($_SERVER['HTTP_HOST']);
 // var_dump($_SERVER['REQUEST_URI']);
@@ -9,22 +14,15 @@ $username = "Admin";
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Stokku - Kelola semua barang dagang-Mu dengan simple dan cepat.">
-  <meta http-equiv="Cache-control" content="no-cache">
+  <?= $headComponent ?>
   <title>Stokku - Home</title>
-  <link rel="stylesheet" type="text/css" href="./styles/style.css">
-  <link rel="icon" href="public/icons/javascript-icon.ico">
-  <link rel="apple-touch-icon" href="public/icons/javascript-icon.ico">
 </head>
 <body>
   <header class="main-head">
     <div class="breadcrump">
       <p class="head-legend">Stokku</p>
       <div class="head-link">
-        <a href="<?= $_SERVER['REQUEST_URI'] ?>" class="active">Home</a>
+        <a href="<?= $currentPath ?>" class="active">Home</a>
       </div>
     </div>
     <div class="head-action">
