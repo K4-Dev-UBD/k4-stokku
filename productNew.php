@@ -3,7 +3,7 @@
 require "components/head.component.php";
 require "utils/breadCrump.php";
 
-global $headComponent, $breadCrump;
+global $headComponent, $breadCrump, $currentPath;
 
 ?>
 
@@ -19,7 +19,7 @@ global $headComponent, $breadCrump;
       <div class="breadcrump">
         <p class="head-legend">Stokku</p>
         <div class="head-link">
-          <a href="<?= $breadCrump[1] ?>">Home</a> / <a href="<?= $breadCrump[2] ?>" class="active">New</a>
+          <a href="<?= $breadCrump[0] ?>">Home</a> / <a href="<?= $currentPath ?>" class="active">New</a>
         </div>
       </div>
       <div class="head-action">
