@@ -21,7 +21,7 @@ if (isset($_POST["submit"])) {
   <title>Stokku Product - <?= $id; ?></title>
 </head>
 <body>
-  <form method="POST" id="form">
+  <form method="POST">
     <header class="main-head">
       <div class="breadcrump">
         <p class="head-legend">Stokku</p>

@@ -19,12 +19,12 @@ global $headComponent, $breadCrump, $currentPath;
       <div class="breadcrump">
         <p class="head-legend">Stokku</p>
         <div class="head-link">
-          <a href="<?= $breadCrump[0] ?>">Home</a> / <a href="<?= $currentPath ?>" class="active">New</a>
+          <a href="<?= $breadCrump[0] ?>">Home</a> / <a href="<?= $currentPath ?>" class="active">Baru</a>
         </div>
       </div>
       <div class="head-action">
         <div class="form-field-action">
-          <button type="submit" class="button button-primary">Save</button>
+          <button type="submit" class="button button-primary">Tambah Baru</button>
         </div>
       </div>
     </header>
