@@ -9,10 +9,6 @@ if (isset($_POST["newProduct"])) {
   header("Location: ".$currentPath."productNew.php");
 }
 
-if (isset($_POST["viewProduct"])) {
-  echo "product view clicked";
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -27,13 +23,21 @@ if (isset($_POST["viewProduct"])) {
       <div class="breadcrump">
         <p class="head-legend">Stokku</p>
         <div class="head-link">
-          <a href="<?= $currentPath ?>" class="active">Home</a>
+          <p href="<?= $currentPath ?>" class="active">Home</p>
         </div>
       </div>
       <div class="head-action">
-        <button type="submit" name="newProduct" class="button button-success">Tambah Barang</button>
+        <button type="submit" name="newProduct" class="button button-primary">Tambah Barang</button>
       </div>
     </header>
+    <section class="search-product">
+      <div class="row">
+        <div class="form-input">
+          <input type="text" class="input" name="search" placeholder="Cari barang">
+          <button type="submit" name="" class="button button-success">Cari</button>
+        </div>
+      </div>
+    </section>
     <div class="barang">
       <div class="barang-inner">
         <!-- mapping data from db -->
@@ -46,20 +50,17 @@ if (isset($_POST["viewProduct"])) {
             </div>
             <div class="card-body">
               <div class="row">
-                <a href="product.php?id=1" class="product-name">Product Name</a>
+                <a href="product.php?id=1" class="product-name">Product Name &raquo;</a>
               </div>
               <div class="row">
-                <p>Stock: 10</p>
+                <p>Stok: 10</p>
               </div>
-              <div class="row">
+              <div class="row flex-grow">
                 <p class="text-muted text-bold">Rp 10000</p>
               </div>
-            </div>
-            <div class="card-footer">
-              <div class="card-action">
-                <div class="row">
-                  <button type="submit" name="viewProduct" class="button button-primary button-view">View</button>
-                </div>
+              <hr>
+              <div class="row">
+                <p class="text-muted text-bold">2002/10/18</p>
               </div>
             </div>
           </div>

@@ -17,19 +17,20 @@ body {
 header.main-head {
 	padding: 20px;
 	display: flex;
-	margin-left: 20px;
-	margin-right: 20px;
+	position: sticky;
+	top: 0;
+	background-color: #f5ff91;
 }
 
 .breadcrump {
-	max-width: 700px;
+	max-width: 700px;	
+	margin-left: 20px;
 }
 
 .breadcrump .head-legend {
 	text-transform: uppercase;
-	font-size: 1.2em;
-	color: #000;
-	font-weight: 500;
+	font-size: 1em;
+	font-weight: 300;
 }
 
 .breadcrump .head-link {
@@ -50,12 +51,15 @@ header.main-head {
 
 .head-action {
 	margin-left: auto;
+	margin-right: 20px;
+	display: flex;
+	align-items: center;
 }
 
 .barang-inner {
 	display: grid;
 	padding: 25px;
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	gap: 15px;
 }
 
@@ -73,26 +77,25 @@ header.main-head {
 	border-radius: 3px;
 	overflow: hidden;
 	justify-content: left;
-	min-width: 200px;
+	min-width: 350px;
 }
 
 .card-inner {
 	background-color: #fff;
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
+	display: grid;
+	grid-template-columns: 2fr 2fr;
 }
 
 .card-header .card-header-image {
 	width: 100%;
+	height: 200px;
 }
 
 .card-header .card-header-image img {
 	width: 100%;
-	height: 200px;
 	object-position: center;
-	background-size: cover;
-	background-position: center;
+	object-fit: cover;
+	height: 200px;
 }
 
 .row {
@@ -100,8 +103,14 @@ header.main-head {
 	width: 100%;
 }
 
+.row.flex-grow {
+	flex-grow: 1;
+}
+
 .card-body {
-	min-height: 100px;
+	min-width: 150px;
+	display: flex;
+	flex-direction: column;
 }
 
 .product-name {
@@ -115,12 +124,16 @@ header.main-head {
 	transition: all .3s ease;
 }
 
+.card-body-footer {
+	bottom: 0;
+}
+
 .card-footer .card-action {
 	display: flex;
 	flex-wrap: wrap;
 }
 
- button.button-view {
+button.button-responsive {
 	width: 100%;
 }
 
@@ -142,6 +155,18 @@ header.main-head {
 	justify-content: center;
 	align-items: center;
 	padding: 7px 16px;
+}
+
+button.no-bg {
+	background-color: transparent;
+}
+
+button.no-shadow {
+	box-shadow: none;
+}
+
+.text-primary, button.text-primary {
+	color: #2578d4;
 }
 
 .button-delete {
@@ -176,7 +201,11 @@ header.main-head {
 }
 
 .text-bold {
-	font-weight: 800;
+	font-weight: 700;
+}
+
+.text-danger {
+	color: #ff0000;
 }
 
 .head-action button {
@@ -229,8 +258,32 @@ input[type=text]:focus {
 	outline-color: #2dda2d;
 }
 
+.card-body .row a {
+	display: inline-block;
+	width: 100%;
+	min-height: 20px;
+	line-height: 20px;
+}
+
 .form-input .input {
 	font-size: 16px;
 	line-height: 1.5;
 	width: 100%;
+}
+
+section.search-product .form-input {
+	width: 50%;
+	padding: 15px 0;
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+}
+
+section.search-product .form-input input {
+	margin-right: 10px;
+}
+
+section.search-product .form-input button {
+	width: 15%;
+	text-transform: uppercase;
 }

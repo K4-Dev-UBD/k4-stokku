@@ -24,7 +24,7 @@ global $headComponent, $breadCrump, $currentPath;
       </div>
       <div class="head-action">
         <div class="form-field-action">
-          <button type="submit" class="button button-primary">Tambah Baru</button>
+          <button type="submit" class="button button-success">Tambah Baru</button>
         </div>
       </div>
     </header>

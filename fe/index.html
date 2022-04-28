@@ -14,13 +14,13 @@
 <body>
   <header class="main-head">
     <div class="breadcrump">
-      <p class="head-legend">Stokku</p>
+      <p class="head-legend text-muted">Stokku</p>
       <div class="head-link">
         <a href="<?= $_SERVER['REQUEST_URI'] ?>" class="active">Home</a>
       </div>
     </div>
     <div class="head-action">
-      <button class="button button-success">Tambah Barang</button>
+      <button class="button button-primary">Tambah Barang</button>
     </div>
   </header>
   <div class="barang">
@@ -34,20 +34,17 @@
           </div>
           <div class="card-body">
             <div class="row">
-              <a href="product.php?id=1" class="product-name">Product Name</a>
+              <a href="product.php?id=1" class="product-name">Product Name &raquo;</a>
             </div>
             <div class="row">
               <p>Stok: 10</p>
             </div>
-            <div class="row">
+            <div class="row flex-grow">
               <p class="text-muted text-bold">Rp 10000</p>
             </div>
-          </div>
-          <div class="card-footer">
-            <div class="card-action">
-              <div class="row">
-                <button class="button button-primary button-view">View</button>
-              </div>
+            <hr>
+            <div class="row">
+              <p class="text-muted text-bold">2002/10/18</p>
             </div>
           </div>
         </div>
