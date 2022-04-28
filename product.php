@@ -26,7 +26,7 @@ if (isset($_POST["submit"])) {
       <div class="breadcrump">
         <p class="head-legend">Stokku</p>
         <div class="head-link">
-          <a href="<?= $breadCrump[0] ?>">Home</a> / <a href="<?= $currentPath ?>" class="active">Detail</a>
+          <a href="<?= $breadCrump[0] ?>">Home</a> / <p class="active">Detail</p>
         </div>
       </div>
       <div class="head-action">

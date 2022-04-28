@@ -37,12 +37,13 @@ header.main-head {
 	color:#54acacd2;
 }
 
-.breadcrump .head-link a {
+.breadcrump .head-link a, .breadcrump .head-link p {
 	text-decoration: none;
 	color:#54acacd2;
+	display: inline-block;
 }
 
-.breadcrump .head-link a:focus, .breadcrump .head-link a:hover, .breadcrump .head-link a:active, .breadcrump .head-link a.active {
+.breadcrump .head-link a:focus, .breadcrump .head-link a:hover, .breadcrump .head-link a:active, .breadcrump .head-link a.active, .breadcrump .head-link p.active {
 	color: #077c7c;
 	transition: .3s ease;
 }

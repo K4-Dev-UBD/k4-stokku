@@ -19,7 +19,7 @@ global $headComponent, $breadCrump, $currentPath;
       <div class="breadcrump">
         <p class="head-legend">Stokku</p>
         <div class="head-link">
-          <a href="<?= $breadCrump[0] ?>">Home</a> / <a href="<?= $currentPath ?>" class="active">Baru</a>
+          <a href="<?= $breadCrump[0] ?>">Home</a> / <p class="active">Baru</p>
         </div>
       </div>
       <div class="head-action">

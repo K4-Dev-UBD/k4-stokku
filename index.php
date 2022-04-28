@@ -9,6 +9,10 @@ if (isset($_POST["newProduct"])) {
   header("Location: ".$currentPath."productNew.php");
 }
 
+if (isset($_POST["viewProduct"])) {
+  echo "product view clicked";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +58,7 @@ if (isset($_POST["newProduct"])) {
             <div class="card-footer">
               <div class="card-action">
                 <div class="row">
-                  <button class="button button-primary button-view">View</button>
+                  <button type="submit" name="viewProduct" class="button button-primary button-view">View</button>
                 </div>
               </div>
             </div>
