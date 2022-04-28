@@ -1,0 +1,289 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Inter', sans-serif;
+	box-sizing: border-box;
+	word-wrap: break-word;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: whitesmoke;
+}
+
+header.main-head {
+	padding: 20px;
+	display: flex;
+	position: sticky;
+	top: 0;
+	background-color: #f5ff91;
+}
+
+.breadcrump {
+	max-width: 700px;	
+	margin-left: 20px;
+}
+
+.breadcrump .head-legend {
+	text-transform: uppercase;
+	font-size: 1em;
+	font-weight: 300;
+}
+
+.breadcrump .head-link {
+	font-size: 1.7em;
+	color:#54acacd2;
+}
+
+.breadcrump .head-link a, .breadcrump .head-link p {
+	text-decoration: none;
+	color:#54acacd2;
+	display: inline-block;
+}
+
+.breadcrump .head-link a:focus, .breadcrump .head-link a:hover, .breadcrump .head-link a:active, .breadcrump .head-link a.active, .breadcrump .head-link p.active {
+	color: #077c7c;
+	transition: .3s ease;
+}
+
+.head-action {
+	margin-left: auto;
+	margin-right: 20px;
+	display: flex;
+	align-items: center;
+}
+
+.barang-inner {
+	display: grid;
+	padding: 25px;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 15px;
+}
+
+.barang-head {
+	width: 100%;
+}
+
+.barang-inner .barang-head .barang-head-name p {
+	text-transform: capitalize;
+}
+
+.card {
+	margin: 15px;
+	box-shadow: 0px 0px 8px 2px rgba(31, 31 ,31, 0.2);
+	border-radius: 3px;
+	overflow: hidden;
+	justify-content: left;
+	min-width: 350px;
+}
+
+.card-inner {
+	background-color: #fff;
+	display: grid;
+	grid-template-columns: 2fr 2fr;
+}
+
+.card-header .card-header-image {
+	width: 100%;
+	height: 200px;
+}
+
+.card-header .card-header-image img {
+	width: 100%;
+	object-position: center;
+	object-fit: cover;
+	height: 200px;
+}
+
+.row {
+	padding: 6px;
+	width: 100%;
+}
+
+.row.flex-grow {
+	flex-grow: 1;
+}
+
+.card-body {
+	min-width: 150px;
+	display: flex;
+	flex-direction: column;
+}
+
+.product-name {
+	text-decoration: none;
+	color: #5f9ea0;
+	cursor: pointer;
+}
+
+.product-name:hover {
+	color: #005a5e;
+	transition: all .3s ease;
+}
+
+.card-body-footer {
+	bottom: 0;
+}
+
+.card-footer .card-action {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+button.button-responsive {
+	width: 100%;
+}
+
+.button {
+	border: none;
+	outline: none;
+	padding: 10px;
+	cursor: pointer;
+	color: #fff;
+	box-shadow: 0px 0px 5px 1px rgba(31, 31 ,31, 0.2);
+	border-radius: 3px;
+	font-size: .9em;
+	text-align: center;
+	font-weight: 600;
+	text-decoration: none;
+	white-space: nowrap;
+	vertical-align: middle;
+	display: inline-block;
+	justify-content: center;
+	align-items: center;
+	padding: 7px 16px;
+}
+
+button.no-bg {
+	background-color: transparent;
+}
+
+button.no-shadow {
+	box-shadow: none;
+}
+
+.text-primary, button.text-primary {
+	color: #2578d4;
+}
+
+.button-delete {
+	background-color: #d80f13;
+}
+
+.button-delete:hover {
+	transition: .3s ease;
+	background-color: #ee1b1ead;
+}
+
+.button-primary {
+	background-color: #2578d4;
+}
+
+.button-primary:hover {
+	transition: .3s ease;
+	background-color: #338ef5d2;
+}
+
+.button-success {
+	background-color: #2dda2d;
+}
+
+.button-success:hover {
+	background-color: #2dda2db9;
+	transition: .3s ease;
+}
+
+.text-muted {
+	color: #525252c4;
+}
+
+.text-bold {
+	font-weight: 700;
+}
+
+.text-danger {
+	color: #ff0000;
+}
+
+.head-action button {
+	margin-left: 10px;
+}
+
+.form-field {
+	padding: 30px 100px;
+}
+
+.form-field-body {
+	background-color: #ffffff62;
+	padding: 20px;
+}
+
+.form-field-action {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.form-field-action button {
+	margin-left: 10px;
+}
+
+.form-input-heading {
+	display: block;
+	margin-bottom: 3px;
+	font-size: 16px;
+	line-height: 1.5;
+	font-weight: 600;
+}
+
+.form-field-body .row:not(:last-child) {
+	margin-bottom: 25px;
+}
+
+input[type=text] {
+	background-color: #fff;
+	border: 1px solid #c9cecf;
+	border-radius: 3px;
+	box-shadow: none;
+	color: #2e3d46;
+	max-width: 100%;
+	padding: 7px 8px;
+	transition: all .3s ease;
+	vertical-align: middle;
+}
+
+input[type=text]:focus {
+	outline-color: #2dda2d;
+}
+
+.card-body .row a {
+	display: inline-block;
+	width: 100%;
+	min-height: 20px;
+	line-height: 20px;
+}
+
+.form-input .input {
+	font-size: 16px;
+	line-height: 1.5;
+	width: 100%;
+}
+
+section.search-product .form-input {
+	width: 50%;
+	padding: 15px 0;
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+}
+
+section.search-product .form-input input {
+	margin-right: 10px;
+}
+
+section.search-product .form-input button {
+	width: 15%;
+	text-transform: uppercase;
+}
