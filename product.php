@@ -37,11 +37,26 @@ if (isset($_POST["submit"])) {
       </div>
     </header>
     <div class="form-field">
-      <div class="form-field-body">
-        <div class="row">
-          <div class="form-input">
-            <label for="name" class="form-input-heading">Name</label>
-            <input type="text" class="input" name="name" placeholder="Name input here">
+      <div class="form-field-body divided-2">
+        <div class="product-image">
+          <div class="row">
+            <div class="form-file-preview">
+              <img src="public/images/javascript-icon.png" class="preview" alt="Upload preview">
+            </div>
+            <div class="form-file-input">
+              <label for="card_image" class="label">
+                <button type="button" class="button button-dark-gray">Browse files</button>
+                <span class="placeholder">No file selected...</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="row">
+            <div class="form-input">
+              <label for="name" class="form-input-heading">Name</label>
+              <input type="text" class="input" name="name" placeholder="Name input here">
+            </div>
           </div>
         </div>
       </div>

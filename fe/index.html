@@ -1,55 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Stokku - Kelola semua barang dagang-Mu dengan simple dan cepat.">
-  <meta http-equiv="Cache-control" content="no-cache">
-  <title>Stokku - Home</title>
-  <link rel="stylesheet" type="text/css" href="styles/style.css">
-  <link rel="icon" href="public/icons/javascript-icon.ico">
-  <link rel="apple-touch-icon" href="public/icons/javascript-icon.ico">
+<meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Stokku - Kelola semua barang dagang-Mu dengan simple dan cepat.">
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<link rel="icon" href="public/icons/javascript-icon.ico">
+<link rel="apple-touch-icon" href="public/icons/javascript-icon.ico">
+  <title>Stokku Product - <?= $id; ?></title>
 </head>
 <body>
-  <header class="main-head">
-    <div class="breadcrump">
-      <p class="head-legend text-muted">Stokku</p>
-      <div class="head-link">
-        <a href="<?= $_SERVER['REQUEST_URI'] ?>" class="active">Home</a>
+  <form method="POST">
+    <header class="main-head">
+      <div class="breadcrump">
+        <p class="head-legend">Stokku</p>
+        <div class="head-link">
+          <a href="<?= $breadCrump[0] ?>">Home</a> / <p class="active">Detail</p>
+        </div>
       </div>
-    </div>
-    <div class="head-action">
-      <button class="button button-primary">Tambah Barang</button>
-    </div>
-  </header>
-  <div class="barang">
-    <div class="barang-inner">
-      <section class="card">
-        <div class="card-inner">
-          <div class="card-header">
-            <div class="card-header-image">
-              <img src="public/images/javascript-icon.png" alt="Product Image">
+      <div class="head-action">
+        <div class="form-field-action">
+          <button class="button button-delete">Delete</button>
+          <button type="submit" name="submit" class="button button-primary">Save</button>
+        </div>
+      </div>
+    </header>
+    <div class="form-field">
+      <div class="form-field-body divided-2">
+        <div class="product-image">
+          <div class="row">
+            <div class="form-file-preview">
+              <img src="public/images/javascript-icon.png" class="preview" alt="Upload preview">
             </div>
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <a href="product.php?id=1" class="product-name">Product Name &raquo;</a>
-            </div>
-            <div class="row">
-              <p>Stok: 10</p>
-            </div>
-            <div class="row flex-grow">
-              <p class="text-muted text-bold">Rp 10000</p>
-            </div>
-            <hr>
-            <div class="row">
-              <p class="text-muted text-bold">2002/10/18</p>
+            <div class="form-file-input">
+              <label for="card_image" class="label">
+                <button type="button" class="button button-dark-gray">Browse files</button>
+                <span class="placeholder">No file selected...</span>
+              </label>
             </div>
           </div>
         </div>
-      </section>
+        <div class="product-info">
+          <div class="row">
+            <div class="form-input">
+              <label for="name" class="form-input-heading">Name</label>
+              <input type="text" class="input" name="name" placeholder="Name input here">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </form>
 </body>
 </html>
