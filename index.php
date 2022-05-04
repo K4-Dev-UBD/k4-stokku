@@ -34,7 +34,7 @@ if (isset($_POST["newProduct"])) {
       <div class="row">
         <div class="form-input">
           <input type="text" class="input" name="search" placeholder="Cari barang">
-          <button type="submit" name="" class="button button-success">Cari</button>
+          <button type="submit" name="" class="button button-success no-shadow">Cari</button>
         </div>
       </div>
     </section>
