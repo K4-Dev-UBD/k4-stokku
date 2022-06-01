@@ -68,5 +68,7 @@ if (isset($_POST["newProduct"])) {
       </div>
     </div>
   </form>
+
+  <script src="scripts/index.js"></script>
 </body>
 </html>

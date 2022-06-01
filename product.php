@@ -22,7 +22,7 @@ $hostUrl = $_SERVER["HTTP_HOST"];
   <title>Stokku Product - <?= $id; ?></title>
 </head>
 <body>
-  <form method="POST">
+  <form method="POST" id="formDetailProduct">
     <header class="main-head">
       <div class="breadcrump">
         <p class="head-legend">Stokku</p>
@@ -65,5 +65,7 @@ $hostUrl = $_SERVER["HTTP_HOST"];
       </div>
     </div>
   </form>
+
+  <script src="scripts/index.js"></script>
 </body>
 </html>

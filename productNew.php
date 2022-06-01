@@ -3,7 +3,7 @@
 require "components/head.component.php";
 require "utils/breadCrump.php";
 
-global $headComponent, $breadCrump, $currentPath;
+global $headComponent, $breadCrump, $currentPath,;
 
 ?>
 
@@ -14,7 +14,7 @@ global $headComponent, $breadCrump, $currentPath;
   <title>Stokku Product - New</title>
 </head>
 <body>
-  <form method="POST">
+  <form method="POST" id="formDetailProduct">
     <header class="main-head">
       <div class="breadcrump">
         <p class="head-legend">Stokku</p>
@@ -56,5 +56,7 @@ global $headComponent, $breadCrump, $currentPath;
       </div>
     </div>
   </form>
+
+  <script src="scripts/index.js"></script>
 </body>
 </html>
