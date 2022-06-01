@@ -27,7 +27,7 @@ $hostUrl = $_SERVER["HTTP_HOST"];
       <div class="breadcrump">
         <p class="head-legend">Stokku</p>
         <div class="head-link">
-          <a href="/">Home</a> / <p class="active">Detail</p>
+          <a href="<?= $breadCrump[1]; ?>">Home</a> / <p class="active">Detail</p>
         </div>
       </div>
       <div class="head-action">
