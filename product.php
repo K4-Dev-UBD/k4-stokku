@@ -10,6 +10,7 @@ $id = $_GET["id"];
 if (isset($_POST["submit"])) {
   var_dump($_POST);
 }
+$hostUrl = $_SERVER["HTTP_HOST"];
 
 ?>
 
@@ -26,7 +27,7 @@ if (isset($_POST["submit"])) {
       <div class="breadcrump">
         <p class="head-legend">Stokku</p>
         <div class="head-link">
-          <a href="<?= $breadCrump[0] ?>">Home</a> / <p class="active">Detail</p>
+          <a href="/">Home</a> / <p class="active">Detail</p>
         </div>
       </div>
       <div class="head-action">
@@ -41,12 +42,14 @@ if (isset($_POST["submit"])) {
         <div class="product-image">
           <div class="row">
             <div class="form-file-preview">
-              <img src="public/images/javascript-icon.png" class="preview" alt="Upload preview">
+              <img src="" id="imagePreview" class="preview">
+              <button type="button" class="button-file-cancel" id="buttonFileCancel">x</button>
             </div>
             <div class="form-file-input">
               <label for="card_image" class="label">
-                <button type="button" class="button button-dark-gray">Browse files</button>
-                <span class="placeholder">No file selected...</span>
+                <input type="file" id="btnBrowseFile" class="button-file button-dark-gray" hidden accept="image/*">
+                <label for="btnBrowseFile">Browse File</label>
+                <span class="placeholder" id="filePlaceholder">No file selected...</span>
               </label>
             </div>
           </div>

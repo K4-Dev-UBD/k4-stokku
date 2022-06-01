@@ -9,10 +9,9 @@
 <link rel="stylesheet" type="text/css" href="styles/style.css">
 <link rel="icon" href="public/icons/javascript-icon.ico">
 <link rel="apple-touch-icon" href="public/icons/javascript-icon.ico">
-  <title>Stokku Product - <?= $id; ?></title>
 </head>
 <body>
-  <form method="POST">
+  <form method="POST" id="formDetailProduct">
     <header class="main-head">
       <div class="breadcrump">
         <p class="head-legend">Stokku</p>
@@ -32,12 +31,14 @@
         <div class="product-image">
           <div class="row">
             <div class="form-file-preview">
-              <img src="public/images/javascript-icon.png" class="preview" alt="Upload preview">
+              <img src="" id="imagePreview" class="preview">
+              <button type="button" class="button-file-cancel" id="buttonFileCancel">x</button>
             </div>
             <div class="form-file-input">
               <label for="card_image" class="label">
-                <button type="button" class="button button-dark-gray">Browse files</button>
-                <span class="placeholder">No file selected...</span>
+                <input type="file" id="btnBrowseFile" class="button-file button-dark-gray" hidden accept="image/*">
+                <label for="btnBrowseFile">Browse File</label>
+                <span class="placeholder" id="filePlaceholder">No file selected...</span>
               </label>
             </div>
           </div>
@@ -53,5 +54,7 @@
       </div>
     </div>
   </form>
+
+  <script src="scripts/index.js"></script>
 </body>
 </html>
