@@ -3,7 +3,7 @@
 require "components/head.component.php";
 require "utils/breadCrump.php";
 
-global $headComponent, $breadCrump, $currentPath,;
+global $headComponent, $breadCrump, $currentPath;
 
 ?>
 
