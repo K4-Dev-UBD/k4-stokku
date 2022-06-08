@@ -52,6 +52,12 @@ global $headComponent, $breadCrump, $currentPath;
               <input type="text" class="input" name="name" placeholder="Name input here">
             </div>
           </div>
+          <div class="row">
+            <div class="form-input">
+              <label for="name" class="form-input-heading">Harga</label>
+              <input type="text" class="input" name="name" placeholder="Name input here">
+            </div>
+          </div>
         </div>
       </div>
     </div>
