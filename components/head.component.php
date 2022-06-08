@@ -9,5 +9,4 @@ $headComponent = '
   <link rel="icon" href="public/icons/javascript-icon.ico">
   <link rel="apple-touch-icon" href="public/icons/javascript-icon.ico">
 '
-
 ?>
