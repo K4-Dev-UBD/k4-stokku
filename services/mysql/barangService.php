@@ -27,5 +27,9 @@ class BarangService
     $query= $this->db->query($sql);
     return $query;
   }
+  public function edit_barang()
+  {
+    $sql = "SELECT * FROM barang WHERE Product ID = '$product_id'"
+  }  
 }
 ?>
