@@ -21,11 +21,11 @@ class BarangService
       return "Success";
     }
   }
-}
-public function select_barang()
-{
-  $sql="ambil_barang *  barang";
-  $query= $this->db->query($sql);
-  return $query;
+  public function select_barang()
+  {
+    $sql="ambil_barang *  barang";
+    $query= $this->db->query($sql);
+    return $query;
+  }
 }
 ?>
