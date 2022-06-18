@@ -1,6 +1,5 @@
 <?php
 
-<<<<<<< Updated upstream
 require "components/head.component.php";
 require "utils/breadCrump.php";
 
@@ -9,9 +8,8 @@ global $headComponent, $currentPath;
 if (isset($_POST["newProduct"])) {
   header("Location: ".$currentPath."productNew.php");
 }
-=======
+
 $username = "Test" 
->>>>>>> Stashed changes
 
 ?>
 
