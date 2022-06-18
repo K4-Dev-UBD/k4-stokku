@@ -1,3 +1,5 @@
+<?php 
+
 class BarangService {
   public function __construct() {
     private $this->db = new PDO();
@@ -5,3 +7,5 @@ class BarangService {
 
   // write method for add & get
 }
+
+?>
