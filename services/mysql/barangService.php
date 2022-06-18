@@ -31,5 +31,16 @@ class BarangService
   {
     $sql = "SELECT * FROM barang WHERE Product ID = '$product_id'"
   }  
+  public function delete_barang($product ID)
+  {
+    $sql = "DELETE FROM barang WHERE product ID='$nim'";
+    $query = $this->db->query($sql);
+    if(!$query)
+{
+  return "Failed";
+  }
+  else
+{
+return "Success";
 }
 ?>
