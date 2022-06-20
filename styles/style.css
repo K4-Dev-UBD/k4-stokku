@@ -20,6 +20,7 @@ header.main-head {
 	position: sticky;
 	top: 0;
 	background-color: #f5ff91;
+	z-index: 10;
 }
 
 .breadcrump {
@@ -244,7 +245,7 @@ button.no-shadow {
 	margin-bottom: 25px;
 }
 
-input[type=text] {
+input[type=text], input[type=date], input[type=number] {
 	background-color: #fff;
 	border: 1px solid #c9cecf;
 	border-radius: 3px;
@@ -258,6 +259,15 @@ input[type=text] {
 
 input[type=text]:focus {
 	outline-color: #2dda2d;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .card-body .row a {

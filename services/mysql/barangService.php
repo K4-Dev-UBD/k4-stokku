@@ -2,18 +2,21 @@
 
 class BarangService {
   public function __construct() {
-    private $this->db = new PDO('mysql:host=localhost host;dbname=barang', 'root', '');
+    $this->db = new PDO('mysql:host=localhost;dbname=k4stokku_db', 'root', '');
   }
 
-  public function tambah_barang($product_name, $stock, $price, $asal, $jenis, $expired, $tanggal_beli, $deskripsi, $harga_jual, $created_date, $updated_date, $gambar) {
-    $sql= "INSERT INTO barang (product_name, stock, price, asal, jenis, expired, tanggal_beli, deskripsi, harga_jual, created_date, updated_date, gambar)VALUES ('$product_name', '$stock', '$price', '$asal', '$jenis', '$expired', '$tanggal_beli', '$deskripsi', '$harga_jual', '$created_date', '$updated_date', '$gambar')";
+  public function tambah_barang($product_name, $stock, $price, $asal, $jenis, $expired, $tanggal_beli, $deskripsi, $harga_jual, $gambar) {
+    $created_date = date('Y/m/d', time());
+
+    $sql= "INSERT INTO barang (product_name, stock, price, asal, jenis, expired, tanggal_beli, deskripsi, harga_jual, created_date, updated_date, gambar) VALUES 
+    ('$product_name', '$stock', '$price', '$asal', '$jenis', '$expired', '$tanggal_beli', '$deskripsi', '$harga_jual', '$created_date', '$created_date', '$gambar')";
     $query= $this->db->query($sql);
 
     if (!$query) {
-      return "Failed";
-    } else {
-      return "Success";
+      return false;
     }
+
+    return "Success";
   }
 
   public function select_barang() {
@@ -26,21 +29,28 @@ class BarangService {
     $query=$this->db->query($sql);
   }
 
-  public function edit_barang($product_id, $product_name, $stock, $price, $asal, $jenis, $expired, $tanggal_beli, $deskripsi, $harga_jual, $created_date, $updated_date, $gambar) {
+  public function edit_barang($product_id, $product_name, $stock, $price, $asal, $jenis, $expired, $tanggal_beli, $deskripsi, $harga_jual, $gambar) {
+    $updated_date = date('Y/m/d', time());
     $sql = "UPDATE barang SET 
-product_name = '$product_name', 
-stock = '$stock',
-price = '$price',
-asal = '$asal',
-jenis = '$jenis',
-expired = '$expired',
-tanggal_beli = '$tanggal_beli',
-deskripsi = '$deskripsi',
-harga_jual = '$harga_jual',
-created_date = '$created_date',
-updated_date = '$updated_date',
-gambar = '$gambar'
-WHERE product_id = '$product_id'";
+      product_name = '$product_name', 
+      stock = '$stock',
+      price = '$price',
+      asal = '$asal',
+      jenis = '$jenis',
+      expired = '$expired',
+      tanggal_beli = '$tanggal_beli',
+      deskripsi = '$deskripsi',
+      harga_jual = '$harga_jual',
+      updated_date = '$updated_date',
+      gambar = '$gambar'
+      WHERE product_id = '$product_id'
+    ";
+    $query = $this->db->query($sql);
+    if (!$query) {
+      return false;
+    } 
+
+    return "Success";
   }
 
   public function delete_barang($product_id) {
@@ -48,10 +58,10 @@ WHERE product_id = '$product_id'";
     $query = $this->db->query($sql);
 
     if (!$query) {
-      return "Failed";
-    } else {
-      return "Success";
+      return false;
     }
+
+    return "Success";
   }
 }
 

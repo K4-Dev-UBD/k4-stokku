@@ -13,10 +13,6 @@ const clearImagePreview = () => {
   document.getElementById('filePlaceholder').innerHTML = state.image.fileNamePlaceholder
 }
 
-document.getElementById('formDetailProduct').addEventListener('submit', (e) => {
-  e.preventDefault();
-})
-
 document.getElementById('buttonFileCancel').addEventListener('click', () => {
   clearImagePreview()
 })
