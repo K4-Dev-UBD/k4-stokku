@@ -2,16 +2,18 @@
 
 class BarangService {
   public function __construct() {
-    $this->db = new PDO('mysql:host=localhost host;dbname=k4stokku_db', 'root', '');
+    $this->db = new PDO('mysql:host=localhost;dbname=k4stokku_db', 'root', '');
   }
 
-  public function tambah_barang($product_name, $stock, $price, $asal, $jenis, $expired, $tanggal_beli, $deskripsi, $harga_jual, $created_date, $updated_date, $gambar) {
+  public function tambah_barang($product_name, $stock, $price, $asal, $jenis, $expired, $tanggal_beli, $deskripsi, $harga_jual, $gambar) {
+    $created_date = date('Y/m/d', time());
+
     $sql= "INSERT INTO barang (product_name, stock, price, asal, jenis, expired, tanggal_beli, deskripsi, harga_jual, created_date, updated_date, gambar) VALUES 
-    ('$product_name', '$stock', '$price', '$asal', '$jenis', '$expired', '$tanggal_beli', '$deskripsi', '$harga_jual', '$created_date', '$updated_date', '$gambar')";
+    ('$product_name', '$stock', '$price', '$asal', '$jenis', '$expired', '$tanggal_beli', '$deskripsi', '$harga_jual', '$created_date', '$created_date', '$gambar')";
     $query= $this->db->query($sql);
 
     if (!$query) {
-      return "Failed";
+      return false;
     }
 
     return "Success";
@@ -23,7 +25,8 @@ class BarangService {
     return $query;
   }
 
-  public function edit_barang($product_id, $product_name, $stock, $price, $asal, $jenis, $expired, $tanggal_beli, $deskripsi, $harga_jual, $created_date, $updated_date, $gambar) {
+  public function edit_barang($product_id, $product_name, $stock, $price, $asal, $jenis, $expired, $tanggal_beli, $deskripsi, $harga_jual, $gambar) {
+    $updated_date = date('Y/m/d', time());
     $sql = "UPDATE barang SET 
       product_name = '$product_name', 
       stock = '$stock',
@@ -34,14 +37,13 @@ class BarangService {
       tanggal_beli = '$tanggal_beli',
       deskripsi = '$deskripsi',
       harga_jual = '$harga_jual',
-      created_date = '$created_date',
       updated_date = '$updated_date',
       gambar = '$gambar'
       WHERE product_id = '$product_id'
     ";
     $query = $this->db->query($sql);
     if (!$query) {
-      return "Failed";
+      return false;
     } 
 
     return "Success";
@@ -52,7 +54,7 @@ class BarangService {
     $query = $this->db->query($sql);
 
     if (!$query) {
-      return "Failed";
+      return false;
     }
 
     return "Success";
