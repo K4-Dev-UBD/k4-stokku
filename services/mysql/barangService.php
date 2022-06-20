@@ -45,14 +45,8 @@ class BarangService {
       gambar = '$gambar'
       WHERE product_id = '$product_id'
     ";
-    $query = $this->db->query($sql);
-    if (!$query) {
-      return false;
-    } 
-
-    return "Success";
   }
-
+  
   public function delete_barang($product_id) {
     $sql = "DELETE FROM barang WHERE product_id = '$product_id'";
     $query = $this->db->query($sql);
