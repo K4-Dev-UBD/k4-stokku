@@ -21,6 +21,10 @@ class BarangService {
     $query= $this->db->query($sql);
     return $query;
   }
+  public function cari_barang(){
+    $sql="SELECT product_name FROM barang WHERE product_name='$product_name'";
+    $query=$this->db->query($sql);
+  }
 
   public function edit_barang($product_id, $product_name, $stock, $price, $asal, $jenis, $expired, $tanggal_beli, $deskripsi, $harga_jual, $created_date, $updated_date, $gambar) {
     $sql = "UPDATE barang SET 
