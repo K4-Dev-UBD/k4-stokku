@@ -14,7 +14,7 @@ global $headComponent, $breadCrump, $currentPath;
   <title>Stokku Product - New</title>
 </head>
 <body>
-  <form method="POST" id="formDetailProduct">
+  <form method="POST" id="formDetailProduct" enctype="multipart/form-data">
     <header class="main-head">
       <div class="breadcrump">
         <p class="head-legend">Stokku</p>
