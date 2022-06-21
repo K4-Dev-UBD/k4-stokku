@@ -67,6 +67,7 @@ $hostUrl = $_SERVER["HTTP_HOST"];
           </div>
           <div class="row">
             <div class="form-input">
+              <?php while ($barang = $barangs->fetch(PDO::FETCH_OBJ)) : ?>
               <label for="description" class="form-input-heading">Deskripsi</label>
               <input type="text" class="input" name="description" placeholder="Deskripsi input here">
             </div>
