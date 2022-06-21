@@ -45,15 +45,6 @@ if (isset($_POST["newProduct"])) {
     <div class="barang">
       <div class="barang-inner">
         <?php while ($barang = $barangs->fetch(PDO::FETCH_OBJ)) : {?>
-         
-          <tr>
-            <td><?php echo $barangService->gambar; ?></td>
-            <td><?php echo $barangService->product_name; ?></td>
-            <td><?php echo $barangService->stock; ?></td>
-            <td><?php echo $barangService->harga_jual; ?></td>
-            <td><?php echo $barangService->expired; ?></td>
-          </tr>
-        <?php } ?>
         <section class="card">
           <div class="card-inner">
             <div class="card-header">
