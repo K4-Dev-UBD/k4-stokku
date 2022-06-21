@@ -14,6 +14,10 @@ if (isset($_POST["newProduct"])) {
   header("Location: ".$currentPath."productNew.php");
 }
 
+if (isset($_POST["searchProduct"])) {
+  $barangs = $barangService->searchBarangByProductName($_POST["searchProductName"]);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -38,12 +42,12 @@ if (isset($_POST["newProduct"])) {
     <section class="search-product">
       <div class="row">
         <div class="form-input">
-          <input type="text" class="input" name="search" placeholder="Cari barang">
-          <button type="submit" name="" class="button button-success no-shadow">Cari</button>
+          <input type="text" class="input" name="searchProductName" placeholder="Cari barang" value="<?= isset($_POST["searchProductName"]) ? $_POST["searchProductName"] : "" ?>">
+          <button type="submit" name="searchProduct" class="button button-success no-shadow">Cari</button>
         </div>
       </div>
     </section>
-    <div class="barang">
+    <div class="barang <?= count($barangs) > 0 ? "" : "loading" ?>">
       <div class="barang-inner">
         <?php while ($barang = $barangs->fetch(PDO::FETCH_OBJ)) : ?>
         <section class="card">
@@ -73,7 +77,5 @@ if (isset($_POST["newProduct"])) {
       </div>
     </div>
   </form>
-
-  <script src="scripts/index.js"></script>
 </body>
 </html>

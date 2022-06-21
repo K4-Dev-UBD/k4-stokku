@@ -7,7 +7,6 @@ const state = {
 
 const imagePreview = document.getElementById('imagePreview')
 const btnBrowseFile = document.getElementById('btnBrowseFile')
-
 imagePreview.addEventListener('click', () => {
   let click = new MouseEvent('click')
   btnBrowseFile.dispatchEvent(click)
@@ -32,4 +31,4 @@ btnBrowseFile.addEventListener('change', function(e) {
     imagePreview.alt = file.name
     document.getElementById('filePlaceholder').innerHTML = file.name
   }
-})
+}) 

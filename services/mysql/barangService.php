@@ -31,14 +31,14 @@ class BarangService {
   }
 
   public function searchBarangByProductName($product_name) {
-    $sql = "SELECT product_name FROM barang WHERE product_name = '$product_name'";
+    $sql = "SELECT * FROM barang WHERE product_name LIKE '%$product_name%'";
     $result = $this->db->query($sql);
 
     if (!$result) {
       return false;
     }
 
-    return true;
+    return $result;
   }
 
   public function getBarangById($productId) {
