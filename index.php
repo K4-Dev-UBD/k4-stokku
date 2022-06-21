@@ -2,14 +2,16 @@
 
 require "components/head.component.php";
 require "utils/breadCrump.php";
+require "services/mysql/BarangService.php";
 
 global $headComponent, $currentPath;
+
+$barangService = new BarangService();
+$barangs = $barangService->getAllBarang();
 
 if (isset($_POST["newProduct"])) {
   header("Location: ".$currentPath."productNew.php");
 }
-
-$username = "Test" 
 
 ?>
 
@@ -42,7 +44,7 @@ $username = "Test"
     </section>
     <div class="barang">
       <div class="barang-inner">
-        <!-- mapping data from db -->
+        <?php while ($barang = $barangs->fetch(PDO::FETCH_OBJ)) : ?>
         <section class="card">
           <div class="card-inner">
             <div class="card-header">
@@ -67,6 +69,7 @@ $username = "Test"
             </div>
           </div>
         </section>
+        <?php endwhile; ?>
       </div>
     </div>
   </form>

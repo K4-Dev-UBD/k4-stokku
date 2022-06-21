@@ -5,7 +5,7 @@ class BarangService {
     $this->db = new PDO('mysql:host=localhost;dbname=k4stokku_db', 'root', '');
   }
 
-  public function tambah_barang($product_name, $stock, $price, $asal, $jenis, $expired, $tanggal_beli, $deskripsi, $harga_jual, $gambar) {
+  public function addBarang($product_name, $stock, $price, $asal, $jenis, $expired, $tanggal_beli, $deskripsi, $harga_jual, $gambar) {
     $created_date = date('Y/m/d', time());
 
     $sql= "INSERT INTO barang (product_name, stock, price, asal, jenis, expired, tanggal_beli, deskripsi, harga_jual, created_date, updated_date, gambar) VALUES 
@@ -19,17 +19,17 @@ class BarangService {
     return "Success";
   }
 
-  public function select_barang() {
+  public function getAllBarang() {
     $sql="SELECT * FROM barang";
     $query= $this->db->query($sql);
     return $query;
   }
-  public function cari_barang(){
+  public function searchBarangByProductName(){
     $sql="SELECT product_name FROM barang WHERE product_name='$product_name'";
     $query=$this->db->query($sql);
   }
 
-  public function edit_barang($product_id, $product_name, $stock, $price, $asal, $jenis, $expired, $tanggal_beli, $deskripsi, $harga_jual, $gambar) {
+  public function editBarangById($product_id, $product_name, $stock, $price, $asal, $jenis, $expired, $tanggal_beli, $deskripsi, $harga_jual, $gambar) {
     $updated_date = date('Y/m/d', time());
     $sql = "UPDATE barang SET 
       product_name = '$product_name', 
@@ -47,7 +47,7 @@ class BarangService {
     ";
   }
   
-  public function delete_barang($product_id) {
+  public function deleteBarangById($product_id) {
     $sql = "DELETE FROM barang WHERE product_id = '$product_id'";
     $query = $this->db->query($sql);
 

@@ -17,7 +17,7 @@ if (isset($_POST["addNewBarang"])) {
     }
   }
 
-  $barangService->tambah_barang(
+  $barangService->addBarang(
     $_POST["name"],
     $_POST["stock"],
     $_POST["price"],
