@@ -37,4 +37,11 @@ function handleUploadImage($file) {
   return $newFileName;
 }
 
+function handleDeleteImage($imageName) {
+  $result = unlink($imageName);
+  if (!$result) {
+    return false;
+  }
+}
+
 ?>

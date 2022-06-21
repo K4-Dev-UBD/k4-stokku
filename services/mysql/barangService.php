@@ -8,25 +8,37 @@ class BarangService {
   public function addBarang($product_name, $stock, $price, $asal, $jenis, $expired, $tanggal_beli, $deskripsi, $harga_jual, $gambar) {
     $created_date = date('Y/m/d', time());
 
-    $sql= "INSERT INTO barang (product_name, stock, price, asal, jenis, expired, tanggal_beli, deskripsi, harga_jual, created_date, updated_date, gambar) VALUES 
+    $sql = "INSERT INTO barang (product_name, stock, price, asal, jenis, expired, tanggal_beli, deskripsi, harga_jual, created_date, updated_date, gambar) VALUES 
     ('$product_name', '$stock', '$price', '$asal', '$jenis', '$expired', '$tanggal_beli', '$deskripsi', '$harga_jual', '$created_date', '$created_date', '$gambar')";
-    $query= $this->db->query($sql);
+    $query = $this->db->query($sql);
 
     if (!$query) {
       return false;
     }
 
-    return "Success";
+    return true;
   }
 
   public function getAllBarang() {
-    $sql="SELECT * FROM barang";
-    $query= $this->db->query($sql);
-    return $query;
+    $sql = "SELECT * FROM barang";
+    $result = $this->db->query($sql);
+
+    if (!$result) {
+      return false;
+    }
+
+    return $result;
   }
-  public function searchBarangByProductName(){
-    $sql="SELECT product_name FROM barang WHERE product_name='$product_name'";
-    $query=$this->db->query($sql);
+
+  public function searchBarangByProductName($product_name) {
+    $sql = "SELECT product_name FROM barang WHERE product_name = '$product_name'";
+    $result = $this->db->query($sql);
+
+    if (!$result) {
+      return false;
+    }
+
+    return true;
   }
 
   public function editBarangById($product_id, $product_name, $stock, $price, $asal, $jenis, $expired, $tanggal_beli, $deskripsi, $harga_jual, $gambar) {
@@ -45,17 +57,23 @@ class BarangService {
       gambar = '$gambar'
       WHERE product_id = '$product_id'
     ";
+    $result = $this->db->query($sql);
+    if (!$result) {
+      return false;
+    }
+
+    return true;
   }
   
   public function deleteBarangById($product_id) {
     $sql = "DELETE FROM barang WHERE product_id = '$product_id'";
-    $query = $this->db->query($sql);
+    $result = $this->db->query($sql);
 
-    if (!$query) {
+    if (!$result) {
       return false;
     }
 
-    return "Success";
+    return true;
   }
 }
 

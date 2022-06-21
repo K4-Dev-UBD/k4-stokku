@@ -17,7 +17,7 @@ if (isset($_POST["addNewBarang"])) {
     }
   }
 
-  $barangService->addBarang(
+  $resultTambahBarang = $barangService->addBarang(
     $_POST["name"],
     $_POST["stock"],
     $_POST["price"],
@@ -25,10 +25,25 @@ if (isset($_POST["addNewBarang"])) {
     $_POST["type"],
     date_format(date_create($_POST["expired"]), "m/d/Y"),
     date_format(date_create($_POST["buying_date"]), "m/d/Y"),
-    $_POST["description"],
+    $_POST["description"] || "",
     $_POST["selling_price"],
     $uploadedFile,
   );
+
+  if (!$resultTambahBarang) {
+    handleDeleteImage($uploadedFile);
+    echo "
+      <script>
+        alert('Gagal menambah barang!')
+      </script>
+    ";
+  } else {
+    echo "
+      <script>
+        alert('Berhasil menambah barang!')
+      </script>
+    ";
+  }
 }
 
 ?>
@@ -81,7 +96,7 @@ if (isset($_POST["addNewBarang"])) {
           <div class="row">
             <div class="form-input">
               <label for="description" class="form-input-heading">Deskripsi</label>
-              <input type="text" class="input" name="description" placeholder="Deskripsi input here" required>
+              <input type="text" class="input" name="description" placeholder="Deskripsi input here">
             </div>
           </div>
           <div class="row">
