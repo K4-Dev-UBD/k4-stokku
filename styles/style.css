@@ -317,7 +317,7 @@ section.search-product .form-input button {
 	height: 310px;
 	object-fit: cover;
 	object-position: center;
-	cursor: zoom-in;
+	cursor: pointer;
 }
 
 .form-file-input .label {
@@ -402,4 +402,8 @@ section.search-product .form-input button {
 .form-file-preview:hover .button-file-cancel {
 	opacity: 1;
 	transition: all .3s ease;
+}
+
+.highlight-expired {
+	background-color: #ffbb3e;
 }

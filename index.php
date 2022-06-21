@@ -7,6 +7,7 @@ require "services/mysql/BarangService.php";
 global $headComponent, $currentPath;
 
 $barangService = new BarangService();
+$barangs = [];
 $barangs = $barangService->getAllBarang();
 
 if (isset($_POST["newProduct"])) {
@@ -49,21 +50,20 @@ if (isset($_POST["newProduct"])) {
           <div class="card-inner">
             <div class="card-header">
               <div class="card-header-image">
-                <img src="<?= $barang->gambar ?>" alt="Product Image">
+                <img src="<?= strpos($barang->gambar, "http") === 0 ? $barang->gambar : "./upload/img/$barang->gambar" ?>" alt="Product Image">
               </div>
             </div>
             <div class="card-body">
               <div class="row">
-                <a href="product.php?id=1" class="product-name"><?= $barang->product_name ?></a>
+                <a href="product.php?id=<?= $barang->product_id ?>" class="product-name"><?= $barang->product_name ?></a>
               </div>
               <div class="row">
-                <p><?= $barang->stock ?></p>
+                <p class="text-bold <?= $barang->stock <= 5 ? "text-danger" : "text-primary" ?>">Sisa <?= $barang->stock ?></p>
               </div>
               <div class="row flex-grow">
-                <p class="text-muted text-bold"><?= $barang->harga_jual ?></p>
+                <p class="text-muted text-bold">Rp <?= number_format($barang->harga_jual, 0, '.', '.') ?></p>
               </div>
-              <hr>
-              <div class="row">
+              <div class="row highlight-expired">
                 <p class="text-muted text-bold"><?= $barang->expired ?></p>
               </div>
             </div>

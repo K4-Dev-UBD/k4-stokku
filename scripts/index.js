@@ -6,6 +6,12 @@ const state = {
 }
 
 const imagePreview = document.getElementById('imagePreview')
+const btnBrowseFile = document.getElementById('btnBrowseFile')
+
+imagePreview.addEventListener('click', () => {
+  let click = new MouseEvent('click')
+  btnBrowseFile.dispatchEvent(click)
+})
 
 const clearImagePreview = () => {
   imagePreview.src = ""
@@ -17,7 +23,7 @@ document.getElementById('buttonFileCancel').addEventListener('click', () => {
   clearImagePreview()
 })
 
-document.getElementById('btnBrowseFile').addEventListener('change', function(e) {
+btnBrowseFile.addEventListener('change', function(e) {
   if (this.files.length > 0) {
     state.image.data = this.files
 

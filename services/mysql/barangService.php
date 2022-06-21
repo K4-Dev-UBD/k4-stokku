@@ -41,6 +41,16 @@ class BarangService {
     return true;
   }
 
+  public function getBarangById($productId) {
+    $query = "SELECT * FROM barang WHERE product_id = '$productId'";
+    $result = $this->db->query($query);
+    if (!$result) {
+      return false;
+    }
+
+    return $result;
+  }
+
   public function editBarangById($product_id, $product_name, $stock, $price, $asal, $jenis, $expired, $tanggal_beli, $deskripsi, $harga_jual, $gambar) {
     $updated_date = date('Y/m/d', time());
     $sql = "UPDATE barang SET 
