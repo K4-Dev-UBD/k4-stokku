@@ -49,22 +49,22 @@ if (isset($_POST["newProduct"])) {
           <div class="card-inner">
             <div class="card-header">
               <div class="card-header-image">
-                <img src="public/images/javascript-icon.png" alt="Product Image">
+                <img src="<? $barang->$gambar?>" alt="Product Image">
               </div>
             </div>
             <div class="card-body">
               <div class="row">
-                <a href="product.php?id=1" class="product-name">Product Name &raquo;</a>
+                <a href="product.php?id=1" class="product-name"><? $barang->$product_name ?></a>
               </div>
               <div class="row">
-                <p>Stok: 10</p>
+                <p><? $barang->$stock?></p>
               </div>
               <div class="row flex-grow">
-                <p class="text-muted text-bold">Rp 10000</p>
+                <p class="text-muted text-bold"><? $barang->$harga_jual?></p>
               </div>
               <hr>
               <div class="row">
-                <p class="text-muted text-bold">2002/10/18</p>
+                <p class="text-muted text-bold"><? $barang->$expired?></p>
               </div>
             </div>
           </div>
