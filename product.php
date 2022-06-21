@@ -67,39 +67,38 @@ $hostUrl = $_SERVER["HTTP_HOST"];
           </div>
           <div class="row">
             <div class="form-input">
-              <?php while ($barang = $barangs->fetch(PDO::FETCH_OBJ)) : ?>
               <label for="description" class="form-input-heading">Deskripsi</label>
-              <input type="text" class="input" name="description" placeholder="Deskripsi input here">
+              <input type="text" class="input" name="description" placeholder="Deskripsi input here"><?= $barang->deskripsi ?>
             </div>
           </div>
           <div class="row">
             <div class="form-input">
               <label for="stock" class="form-input-heading">Stok</label>
-              <input type="number" class="input" name="stock" placeholder="Stok input here" required>
+              <input type="number" class="input" name="stock" placeholder="Stok input here" required><?= $barang->stock ?>
             </div>
           </div>
           <div class="row">
             <div class="form-input">
               <label for="price" class="form-input-heading">Harga</label>
-              <input type="number" class="input input-hide-counter" name="price" placeholder="Harga input here" required>
+              <input type="number" class="input input-hide-counter" name="price" placeholder="Harga input here" required><?= $barang->price ?>
             </div>
           </div>
           <div class="row">
             <div class="form-input">
               <label for="selling_price" class="form-input-heading">Harga Jual</label>
-              <input type="number" class="input input-hide-counter" name="selling_price" placeholder="Harga Jual input here" required>
+              <input type="number" class="input input-hide-counter" name="selling_price" placeholder="Harga Jual input here" required><?= $barang->harga_jual ?>
             </div>
           </div>
           <div class="row">
             <div class="form-input">
               <label for="from" class="form-input-heading">Asal</label>
-              <input type="text" class="input" name="from" placeholder="Asal input here" required>
+              <input type="text" class="input" name="from" placeholder="Asal input here" required><?= $barang->asal ?>
             </div>
           </div>
           <div class="row">
             <div class="form-input">
               <label for="type" class="form-input-heading">Jenis</label>
-              <input type="text" class="input" name="type" placeholder="Jenis input here" required>
+              <input type="text" class="input" name="type" placeholder="Jenis input here" required><?= $barang->jenis ?>
             </div>
           </div>
           <div class="row">
