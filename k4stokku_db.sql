@@ -27,6 +27,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `barang`
 --
 
+DROP TABLE IF EXISTS barang, jenis_barang;
+
 CREATE TABLE `barang` (
   `product_id` int(11) NOT NULL,
   `product_name` text NOT NULL,

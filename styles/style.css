@@ -407,3 +407,46 @@ section.search-product .form-input button {
 .highlight-expired {
 	background-color: #ffbb3e;
 }
+
+.modal-dialog {
+	display: none;
+	position: fixed;
+	top: 40%;
+	left: 38%;
+	padding: 25px 15px;
+	text-align: center;
+	background-color: #f5ff91;
+	border-radius: 3px;
+}
+
+.modal-dialog p {
+	color: black;
+	padding-bottom: 15px;
+}
+
+.action-dialog .agree {
+	background-color: green;
+}
+
+.action-dialog .agree:hover {
+	background-color: #075307;
+	transition: .3s ease;
+}
+
+.action-dialog .cancel {
+	background-color: red;
+	margin-left: 15px;
+}
+
+.action-dialog .cancel:hover {
+	transition: .3s ease;
+	background-color: #a00303;
+}
+
+.action-dialog .agree, .action-dialog .cancel {
+	padding: 10px 20px;
+	color: white;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+}

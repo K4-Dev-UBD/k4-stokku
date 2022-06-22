@@ -38,7 +38,7 @@ function handleUploadImage($file) {
 }
 
 function handleDeleteImage($imageName) {
-  $result = unlink($imageName);
+  $result = unlink("upload/img/$imageName");
   if (!$result) {
     return false;
   }

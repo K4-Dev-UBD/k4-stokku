@@ -1,11 +1,11 @@
 <?php 
 
 require "components/head.component.php";
-require "utils/breadCrump.php";
 require "services/mysql/BarangService.php";
 require "services/uploadFileManager.php";
+require "utils/breadCrump.php";
 
-global $headComponent, $breadCrump, $currentPath;
+global $headComponent, $breadCrump;
 
 if (isset($_POST["addNewBarang"])) {
   $barangService = new BarangService();
@@ -146,6 +146,6 @@ if (isset($_POST["addNewBarang"])) {
     </div>
   </form>
 
-  <script src="scripts/index.js"></script>
+  <script src="scripts/product.js"></script>
 </body>
 </html>

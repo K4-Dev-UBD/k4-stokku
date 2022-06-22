@@ -1,17 +1,17 @@
 <?php
 
-require "components/head.component.php";
 require "utils/breadCrump.php";
+require "components/head.component.php";
 require "services/mysql/BarangService.php";
 
-global $headComponent, $currentPath;
+global $headComponent, $breadCrump;
 
 $barangService = new BarangService();
 $barangs = [];
 $barangs = $barangService->getAllBarang();
 
 if (isset($_POST["newProduct"])) {
-  header("Location: ".$currentPath."productNew.php");
+  header("Location: productNew.php");
 }
 
 if (isset($_POST["searchProduct"])) {
@@ -32,7 +32,7 @@ if (isset($_POST["searchProduct"])) {
       <div class="breadcrump">
         <p class="head-legend">Stokku</p>
         <div class="head-link">
-          <p href="<?= $currentPath ?>" class="active">Home</p>
+          <p class="active">Home</p>
         </div>
       </div>
       <div class="head-action">

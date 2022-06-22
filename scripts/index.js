@@ -1,34 +1,15 @@
-const state = {
-  image: {
-    data: null,
-    fileNamePlaceholder: "No file selected..."
-  }
-}
+const btnDelete = document.getElementById('btnDelete')
+const modal = document.getElementById('modalDialog')
+const btnModalAgree = document.querySelector('.agree')
+const btnModalCancel = document.querySelector('.cancel')
 
-const imagePreview = document.getElementById('imagePreview')
-const btnBrowseFile = document.getElementById('btnBrowseFile')
-imagePreview.addEventListener('click', () => {
-  let click = new MouseEvent('click')
-  btnBrowseFile.dispatchEvent(click)
+btnDelete.addEventListener('click', (e) => {
+  e.preventDefault()
+  modal.style.display = 'block'
 })
-
-const clearImagePreview = () => {
-  imagePreview.src = ""
-  imagePreview.alt = ""
-  document.getElementById('filePlaceholder').innerHTML = state.image.fileNamePlaceholder
-}
-
-document.getElementById('buttonFileCancel').addEventListener('click', () => {
-  clearImagePreview()
+btnModalAgree.addEventListener('click', () => {
+  modal.style.display = 'none'
 })
-
-btnBrowseFile.addEventListener('change', function(e) {
-  if (this.files.length > 0) {
-    state.image.data = this.files
-
-    const [file] = state.image.data
-    imagePreview.src = URL.createObjectURL(file)
-    imagePreview.alt = file.name
-    document.getElementById('filePlaceholder').innerHTML = file.name
-  }
-}) 
+btnModalCancel.addEventListener('click', () => {
+  modal.style.display = 'none'
+})
