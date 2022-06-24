@@ -245,7 +245,7 @@ button.no-shadow {
 	margin-bottom: 25px;
 }
 
-input[type=text], input[type=date], input[type=number] {
+input[type=text], input[type=date], input[type=number], select {
 	background-color: #fff;
 	border: 1px solid #c9cecf;
 	border-radius: 3px;
@@ -277,7 +277,7 @@ input[type=number] {
 	line-height: 20px;
 }
 
-.form-input .input {
+.form-input .input, .form-input .input-select {
 	font-size: 16px;
 	line-height: 1.5;
 	width: 100%;
@@ -449,4 +449,49 @@ section.search-product .form-input button {
 	border: none;
 	cursor: pointer;
 	border-radius: 5px;
+}
+
+.master-data__section {
+	justify-content: center;
+	display: flex;
+	padding: 35px;
+}
+
+table {
+	border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.master-data__table {
+	width: calc(100% - 10px * 2);
+	border: 2px solid #0079ff;
+}
+
+table {
+	border-radius: 3px;
+}
+
+table thead {
+	background-color: #ffffff;
+}
+
+table tbody td {
+	padding: 16px 8px;
+}
+
+table th {
+	padding: 10px 8px;
+}
+
+table th, table td {
+	font-size: 14px;
+	line-height: 1.42858;
+	border-bottom: 1px solid #E4E4E4;
+	border-top: 1px solid #E4E4E4;
+	text-align: left;
+	vertical-align: middle;
+}
+
+table tr a {
+	text-decoration: none;
 }

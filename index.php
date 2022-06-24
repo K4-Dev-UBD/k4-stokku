@@ -18,6 +18,10 @@ if (isset($_POST["searchProduct"])) {
   $barangs = $barangService->searchBarangByProductName($_POST["searchProductName"]);
 }
 
+if (isset($_POST["masterType"])) {
+  header("Location: masterProductType.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +41,7 @@ if (isset($_POST["searchProduct"])) {
       </div>
       <div class="head-action">
         <button type="submit" name="newProduct" class="button button-primary">Tambah Barang</button>
+        <button type="submit" name="masterType" class="button button-primary">Master Jenis Barang</button>
       </div>
     </header>
     <section class="search-product">
@@ -54,7 +59,7 @@ if (isset($_POST["searchProduct"])) {
           <div class="card-inner">
             <div class="card-header">
               <div class="card-header-image">
-                <img src="<?= strpos($barang->gambar, "http") === 0 ? $barang->gambar : "./upload/img/$barang->gambar" ?>" alt="Product Image">
+                <img src="<?= $barang->gambar === "" ? "public/images/product.webp" : (strpos($barang->gambar, "http") === 0 ? $barang->gambar : "./upload/img/$barang->gambar") ?>" alt="Product Image">
               </div>
             </div>
             <div class="card-body">
@@ -68,7 +73,7 @@ if (isset($_POST["searchProduct"])) {
                 <p class="text-muted text-bold">Rp <?= number_format($barang->harga_jual, 0, '.', '.') ?></p>
               </div>
               <div class="row highlight-expired">
-                <p class="text-muted text-bold"><?= $barang->expired ?></p>
+                <p class="text-muted text-bold"><?= $barang->expired === "" ? "Non Expired" : $barang->expired ?></p>
               </div>
             </div>
           </div>

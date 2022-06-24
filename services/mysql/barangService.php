@@ -7,7 +7,6 @@ class BarangService {
 
   public function addBarang($product_name, $stock, $price, $asal, $jenis, $expired, $tanggal_beli, $deskripsi, $harga_jual, $gambar) {
     $created_date = date('Y/m/d', time());
-
     $sql = "INSERT INTO barang (product_name, stock, price, asal, jenis, expired, tanggal_beli, deskripsi, harga_jual, created_date, updated_date, gambar) VALUES 
     ('$product_name', '$stock', '$price', '$asal', '$jenis', '$expired', '$tanggal_beli', '$deskripsi', '$harga_jual', '$created_date', '$created_date', '$gambar')";
     $query = $this->db->query($sql);

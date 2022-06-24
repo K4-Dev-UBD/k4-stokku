@@ -2,13 +2,18 @@
 
 require "components/head.component.php";
 require "services/mysql/BarangService.php";
+require "services/mysql/BarangTypeService.php";
 require "services/uploadFileManager.php";
 require "utils/breadCrump.php";
 
 global $headComponent, $breadCrump;
 
+$barangService = new BarangService();
+$barangTypeService = new BarangTypeService();
+
+$barangTypes = $barangTypeService->getAll();
+
 if (isset($_POST["addNewBarang"])) {
-  $barangService = new BarangService();
   $uploadedFile = "";
   if ($_FILES["image"]["name"] !== "") {
     $uploadedFile = handleUploadImage($_FILES["image"]);
@@ -23,27 +28,27 @@ if (isset($_POST["addNewBarang"])) {
     $_POST["price"],
     $_POST["from"],
     $_POST["type"],
-    date_format(date_create($_POST["expired"]), "m/d/Y"),
+    $_POST["expired"] === "" ? "" : date_format(date_create($_POST["expired"]), "m/d/Y"),
     date_format(date_create($_POST["buying_date"]), "m/d/Y"),
     $_POST["description"] || "",
     $_POST["selling_price"],
     $uploadedFile,
   );
 
-  if (!$resultTambahBarang) {
-    handleDeleteImage($uploadedFile);
-    echo "
-      <script>
-        alert('Gagal menambah barang!')
-      </script>
-    ";
-  } else {
-    echo "
-      <script>
-        alert('Berhasil menambah barang!')
-      </script>
-    ";
-  }
+  // if (!$resultTambahBarang) {
+  //   handleDeleteImage($uploadedFile);
+  //   echo "
+  //     <script>
+  //       alert('Gagal menambah barang!')
+  //     </script>
+  //   ";
+  // } else {
+  //   echo "
+  //     <script>
+  //       alert('Berhasil menambah barang!')
+  //     </script>
+  //   ";
+  // }
 }
 
 ?>
@@ -65,11 +70,12 @@ if (isset($_POST["addNewBarang"])) {
       </div>
       <div class="head-action">
         <div class="form-field-action">
-          <button type="submit" class="button button-success" name="addNewBarang">Tambah Baru</button>
+          <button type="submit" class="button button-success" name="addNewBarang">Tambah</button>
         </div>
       </div>
     </header>
     <div class="form-field">
+      <p class="text-muted">note: please fill required form (*)</p>
       <div class="form-field-body divided-2">
         <div class="product-image">
           <div class="row">
@@ -89,7 +95,7 @@ if (isset($_POST["addNewBarang"])) {
         <div class="product-info">
           <div class="row">
             <div class="form-input">
-              <label for="name" class="form-input-heading">Nama</label>
+              <label for="name" class="form-input-heading">Nama*</label>
               <input type="text" class="input" name="name" placeholder="Nama input here" required>
             </div>
           </div>
@@ -101,43 +107,48 @@ if (isset($_POST["addNewBarang"])) {
           </div>
           <div class="row">
             <div class="form-input">
-              <label for="stock" class="form-input-heading">Stok</label>
+              <label for="stock" class="form-input-heading">Stok*</label>
               <input type="number" class="input" name="stock" placeholder="Stok input here" required>
             </div>
           </div>
           <div class="row">
             <div class="form-input">
-              <label for="price" class="form-input-heading">Harga</label>
+              <label for="price" class="form-input-heading">Harga Beli*</label>
               <input type="number" class="input input-hide-counter" name="price" placeholder="Harga input here" required>
             </div>
           </div>
           <div class="row">
             <div class="form-input">
-              <label for="selling_price" class="form-input-heading">Harga Jual</label>
+              <label for="selling_price" class="form-input-heading">Harga Jual*</label>
               <input type="number" class="input input-hide-counter" name="selling_price" placeholder="Harga Jual input here" required>
             </div>
           </div>
           <div class="row">
             <div class="form-input">
-              <label for="from" class="form-input-heading">Asal</label>
-              <input type="text" class="input" name="from" placeholder="Asal input here" required>
+              <label for="from" class="form-input-heading">Asal Pembelian</label>
+              <input type="text" class="input" name="from" placeholder="Asal Pembelian input here">
             </div>
           </div>
           <div class="row">
             <div class="form-input">
-              <label for="type" class="form-input-heading">Jenis</label>
-              <input type="text" class="input" name="type" placeholder="Jenis input here" required>
+              <label for="type" class="form-input-heading">Jenis*</label>
+              <select name="type" required class="input-select">
+                <option value="">Pilih jenis</option>
+                <?php while ($jenis = $barangTypes->fetch(PDO::FETCH_OBJ)) : ?>
+                <option value="<?= $jenis->nama ?>"><?= $jenis->nama ?></option>
+                <?php endwhile ?>
+              </select>
             </div>
           </div>
           <div class="row">
             <div class="form-input">
               <label for="expired" class="form-input-heading">Tanggal Expired</label>
-              <input type="date" class="input" name="expired" placeholder="Tanggal Expired input here" required>
+              <input type="date" class="input" name="expired" placeholder="Tanggal Expired input here">
             </div>
           </div>
           <div class="row">
             <div class="form-input">
-              <label for="buying_date" class="form-input-heading">Tanggal Beli</label>
+              <label for="buying_date" class="form-input-heading">Tanggal Beli*</label>
               <input fo type="date" class="input" name="buying_date" placeholder="Tanggal Beli input here" required>
             </div>
           </div>

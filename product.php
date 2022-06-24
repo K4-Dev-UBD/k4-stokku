@@ -2,12 +2,16 @@
 
 require "components/head.component.php";
 require "services/mysql/barangService.php";
+require "services/mysql/barangTypeService.php";
 require "services/uploadFileManager.php";
 require "utils/breadCrump.php";
 
 global $headComponent, $breadCrump, $currentPath;
 
 $barangService = new BarangService();
+$barangTypeService = new BarangTypeService();
+
+$barangTypes = $barangTypeService->getAll();
 $id = $_GET["id"];
 
 $barang = $barangService->getBarangById($id)->fetch(PDO::FETCH_OBJ);
@@ -30,7 +34,7 @@ if (isset($_POST["save"])) {
     $_POST["price"],
     $_POST["from"],
     $_POST["type"],
-    date_format(date_create($_POST["expired"]), "m/d/Y"),
+    $_POST["expired"] === "" ? "" : date_format(date_create($_POST["expired"]), "m/d/Y"),
     date_format(date_create($_POST["buying_date"]), "m/d/Y"),
     $_POST["description"] || "",
     $_POST["selling_price"],
@@ -50,6 +54,7 @@ if (isset($_POST["save"])) {
         alert('Berhasil mengubah barang!')
       </script>
     ";
+    header("Location: product.php?id=$id");
   }
 }
 
@@ -100,6 +105,7 @@ $hostUrl = $_SERVER["HTTP_HOST"];
         </div>
       </header>
       <div class="form-field">
+        <p class="text-muted">note: please fill required form (*)</p>
         <div class="form-field-body divided-2">
           <div class="product-image">
             <div class="row">
@@ -119,7 +125,7 @@ $hostUrl = $_SERVER["HTTP_HOST"];
           <div class="product-info">
             <div class="row">
               <div class="form-input">
-                <label for="name" class="form-input-heading">Name</label>
+                <label for="name" class="form-input-heading">Nama*</label>
                 <input type="text" class="input" name="name" placeholder="Nama input here" required value="<?= $barang->product_name ?>">
               </div>
             </div>
@@ -131,43 +137,48 @@ $hostUrl = $_SERVER["HTTP_HOST"];
             </div>
             <div class="row">
               <div class="form-input">
-                <label for="stock" class="form-input-heading">Stok</label>
+                <label for="stock" class="form-input-heading">Stok*</label>
                 <input type="number" class="input" name="stock" placeholder="Stok input here" required value="<?= $barang->stock ?>">
               </div>
             </div>
             <div class="row">
               <div class="form-input">
-                <label for="price" class="form-input-heading">Harga</label>
+                <label for="price" class="form-input-heading">Harga Beli*</label>
                 <input type="number" class="input input-hide-counter" name="price" placeholder="Harga input here" required value="<?= $barang->price ?>">
               </div>
             </div>
             <div class="row">
               <div class="form-input">
-                <label for="selling_price" class="form-input-heading">Harga Jual</label>
+                <label for="selling_price" class="form-input-heading">Harga Jual*</label>
                 <input type="number" class="input input-hide-counter" name="selling_price" placeholder="Harga Jual input here" required value="<?= $barang->harga_jual ?>">
               </div>
             </div>
             <div class="row">
               <div class="form-input">
-                <label for="from" class="form-input-heading">Asal</label>
-                <input type="text" class="input" name="from" placeholder="Asal input here" required value="<?= $barang->asal ?>">
+                <label for="from" class="form-input-heading">Asal Pembelian</label>
+                <input type="text" class="input" name="from" placeholder="Asal Pembelian input here" value="<?= $barang->asal ?>">
               </div>
             </div>
             <div class="row">
               <div class="form-input">
-                <label for="type" class="form-input-heading">Jenis</label>
-                <input type="text" class="input" name="type" placeholder="Jenis input here" required value="<?= $barang->jenis ?>">
+                <label for="type" class="form-input-heading">Jenis*</label>
+                <select name="type" required class="input-select">
+                  <option value="">Pilih jenis</option>
+                  <?php while ($jenis = $barangTypes->fetch(PDO::FETCH_OBJ)) : ?>
+                  <option value="<?= $jenis->nama ?>" <?= $jenis->nama === $barang->jenis ? "selected" : "" ?>><?= $jenis->nama ?></option>
+                  <?php endwhile ?>
+                </select>
               </div>
             </div>
             <div class="row">
               <div class="form-input">
                 <label for="expired" class="form-input-heading">Tanggal Expired</label>
-                <input type="date" class="input" name="expired" placeholder="Tanggal Expired input here" required value="<?= date_format(date_create($barang->expired), "Y-m-d") ?>">
+                <input type="date" class="input" name="expired" placeholder="Tanggal Expired input here" value="<?= $_POST["expired"] === "" ? "" : date_format(date_create($_POST["expired"]), "m/d/Y") ?>">
               </div>
             </div>
             <div class="row">
               <div class="form-input">
-                <label for="buying_date" class="form-input-heading">Tanggal Beli</label>
+                <label for="buying_date" class="form-input-heading">Tanggal Beli*</label>
                 <input fo type="date" class="input" name="buying_date" placeholder="Tanggal Beli input here" required value="<?= date_format(date_create($barang->tanggal_beli), "Y-m-d") ?>">
               </div>
             </div>
