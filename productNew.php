@@ -35,20 +35,20 @@ if (isset($_POST["addNewBarang"])) {
     $uploadedFile,
   );
 
-  // if (!$resultTambahBarang) {
-  //   handleDeleteImage($uploadedFile);
-  //   echo "
-  //     <script>
-  //       alert('Gagal menambah barang!')
-  //     </script>
-  //   ";
-  // } else {
-  //   echo "
-  //     <script>
-  //       alert('Berhasil menambah barang!')
-  //     </script>
-  //   ";
-  // }
+  if (!$resultTambahBarang) {
+    handleDeleteImage($uploadedFile);
+    echo "
+      <script>
+        alert('Gagal menambah barang!')
+      </script>
+    ";
+  } else {
+    echo "
+      <script>
+        alert('Berhasil menambah barang!')
+      </script>
+    ";
+  }
 }
 
 ?>
