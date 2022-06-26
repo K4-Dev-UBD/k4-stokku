@@ -52,7 +52,7 @@ if (isset($_POST["masterType"])) {
         </div>
       </div>
     </section>
-    <div class="barang <?= count($barangs) > 0 ? "" : "loading" ?>">
+    <div class="barang">
       <div class="barang-inner">
         <?php while ($barang = $barangs->fetch(PDO::FETCH_OBJ)) : ?>
         <section class="card">
