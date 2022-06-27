@@ -173,7 +173,7 @@ $hostUrl = $_SERVER["HTTP_HOST"];
             <div class="row">
               <div class="form-input">
                 <label for="expired" class="form-input-heading">Tanggal Expired</label>
-                <input type="date" class="input" name="expired" placeholder="Tanggal Expired input here" value="<?= $_POST["expired"] === "" ? "" : date_format(date_create($_POST["expired"]), "m/d/Y") ?>">
+                <input type="date" class="input" name="expired" placeholder="Tanggal Expired input here" value="<?= $barang->expired === "" ? "" : date_format(date_create($barang->expired), "Y-m-d") ?>">
               </div>
             </div>
             <div class="row">

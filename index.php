@@ -6,9 +6,11 @@ require "services/mysql/BarangService.php";
 
 global $headComponent, $breadCrump;
 
+$isLoading = true;
 $barangService = new BarangService();
 $barangs = [];
 $barangs = $barangService->getAllBarang();
+$isLoading = false;
 
 if (isset($_POST["newProduct"])) {
   header("Location: productNew.php");
@@ -52,7 +54,7 @@ if (isset($_POST["masterType"])) {
         </div>
       </div>
     </section>
-    <div class="barang">
+    <div class="barang <?= $isLoading ? "loading" : "" ?>">
       <div class="barang-inner">
         <?php while ($barang = $barangs->fetch(PDO::FETCH_OBJ)) : ?>
         <section class="card">
