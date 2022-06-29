@@ -36,7 +36,7 @@ if (isset($_POST["save"])) {
     $_POST["type"],
     $_POST["expired"] === "" ? "" : date_format(date_create($_POST["expired"]), "m/d/Y"),
     date_format(date_create($_POST["buying_date"]), "m/d/Y"),
-    $_POST["description"] || "",
+    $_POST["description"],
     $_POST["selling_price"],
     $uploadedFile !== "" ? $uploadedFile : $barang->gambar,
   );
